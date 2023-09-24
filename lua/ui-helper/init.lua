@@ -1,5 +1,5 @@
 local M = {}
-local Helper = require "helper"
+local Utils = require "utils"
 
 M.empty_string = function()
   return ""
@@ -19,11 +19,11 @@ M.statusline_location = function()
 
   local location = navic.get_location()
 
-  location = Helper.remove_quoted_strings(location)
-  location = Helper.remove_callback_string(location)
-  location = Helper.trim_anonymous_function(location)
-  location = Helper.concat_string(location)
-  location = Helper.reduce_by_window_width(location)
+  location = Utils.remove_quoted_strings(location)
+  location = Utils.remove_callback_string(location)
+  location = Utils.trim_anonymous_function(location)
+  location = Utils.concat_string(location)
+  location = Utils.reduce_by_window_width(location)
 
   return location
 end
